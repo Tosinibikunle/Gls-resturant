@@ -1,6 +1,6 @@
 from django.db import models
 
-class Restaurant(models.Model):
+class Resturant(models.Model):
     name = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
     description = models.TextField(blank=True)
@@ -21,7 +21,7 @@ class MenuItem(models.Model):
          ('drink', 'Drink'),
        ]
 
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='menu_items')
+    resturant = models.ForeignKey(Resturant, on_delete=models.CASCADE, related_name='menu_items')
     name = models.CharField(max_length=255)
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     price = models.DecimalField(max_digits=8, decimal_places=2)
