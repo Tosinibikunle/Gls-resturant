@@ -26,11 +26,11 @@ class LoginView(APIView):
        return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
 
 class LogoutView(APIView):
-                                                                                                                            permission_classes = [IsAuthenticated]
+     permission_classes = [IsAuthenticated]
 
-                                                                                                                                def post(self, request):
-                                                                                                                                        logout(request)
-                                                                                                                                                return Response({'message': 'Logged out'}, status=status.HTTP_200_OK)
+     def post(self, request):
+        logout(request)
+        return Response({'message': 'Logged out'}, status=status.HTTP_200_OK)
 
                                                                                                                                                 class UserDetailView(APIView):
                                                                                                                                                     permission_classes = [IsAuthenticated]
