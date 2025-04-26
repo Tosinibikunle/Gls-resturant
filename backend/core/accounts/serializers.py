@@ -15,7 +15,7 @@ class SignupSerializer(serializers.ModelSerializer):
               raise serializers.ValidationError({"password": "Passwords do not match."})
           return attrs
 
-                                                                def create(self, validated_data):
-                                                                        validated_data.pop('password2')
-                                                                                user = User.objects.create_user(**validated_data)
-                                                                                        return user
+       def create(self, validated_data):
+          validated_data.pop('password2')
+          user = User.objects.create_user(**validated_data)
+          return user
