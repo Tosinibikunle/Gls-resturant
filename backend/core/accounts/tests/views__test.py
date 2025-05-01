@@ -4,12 +4,12 @@ from django.contrib.auth.models import User
 
 class AccountsViewTests(TestCase):
     def setUp(self):
-            self.client = APIClient()
-                    self.user_data = {
-                                'username': 'testuser',
-                                            'email': 'test@example.com',
-                                                        'password': 'testpass123'
-                                                                }
+        self.client = APIClient()
+        self.user_data = {
+                    'username': 'testuser',
+                    'email': 'test@example.com',
+                    'password': 'testpass123'
+                     }
 
                                                                     def test_register_user(self):
                                                                             response = self.client.post('/api/accounts/register/', self.user_data)
