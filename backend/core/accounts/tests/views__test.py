@@ -11,14 +11,14 @@ class AccountsViewTests(TestCase):
                     'password': 'testpass123'
                      }
 
-                                                                    def test_register_user(self):
-                                                                            response = self.client.post('/api/accounts/register/', self.user_data)
-                                                                                    self.assertEqual(response.status_code, 201)
+    def test_register_user(self):
+       response = self.client.post('/api/accounts/register/', self.user_data)
+       self.assertEqual(response.status_code, 201)
 
-                                                                                        def test_login_user(self):
-                                                                                                User.objects.create_user(**self.user_data)
-                                                                                                        response = self.client.post('/api/accounts/login/', {
-                                                                                                                    'username': 'testuser',
-                                                                                                                                'password': 'testpass123'
-                                                                                                                                        })
-                                                                                                                                                self.assertEqual(response.status_code, 200)
+    def test_login_user(self):
+        User.objects.create_user(**self.user_data)  
+        response = self.client.post('/api/accounts/login/', {
+                                                           'username': 'testuser',
+                                                           'password': 'testpass123'
+                                                        })
+        self.assertEqual(response.status_code, 200)
